@@ -29,22 +29,17 @@ def custom_background(tup):
 
 
 def print_hole(url):
-    # print(url)
     web = get(url)
     image = BytesIO(web.content)
 
     im = Image.open(image)
     x, y = im.size
-    print(x, y)
     char_width = 120
     aspect_ratio = .413
     char_height = trunc(((y / x) * char_width) * aspect_ratio)
 
     pix_per_char_x = trunc(x / char_width)
     pix_per_char_y = trunc(y / char_height)
-
-    print(pix_per_char_x)
-    print(pix_per_char_y)
 
     to_print = []
     for i in range(char_height):
